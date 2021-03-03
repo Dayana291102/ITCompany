@@ -10,7 +10,7 @@ public class MyApplication {
 
     public MyApplication(Controller employee_controller) {
         this.employee_controller=employee_controller;
-       scanner=new Scanner((System.in));
+        scanner=new Scanner((System.in));
     }
 
     public void start() {
@@ -19,7 +19,7 @@ public class MyApplication {
         int choice;
         while (quit != 'y') {
 
-            System.out.println("Choose one option:\n 1) Find employee by id \n 2) Add employee \n3)Add software engineer \n4)Remove software engineer");
+            System.out.println("Choose one option:\n 1) Find employee by id \n 2) Add employee \n3)Add software engineer \n4)Remove software engineer \n 5)Remove web developer ");
             choice = scanner.nextInt();
             try {
                 switch (choice) {
@@ -27,6 +27,8 @@ public class MyApplication {
                     case 2 -> addWorker();
                     case 3 -> addsoft();
                     case 4 -> removesoftworker();
+                    case 5 -> removewebworker();
+
 
                 }
             } catch (Exception e) {
@@ -37,6 +39,8 @@ public class MyApplication {
             quit=input.charAt(0);
         }
     }
+
+
 
     public void start1() {
         char quit = 'n';
@@ -49,7 +53,29 @@ public class MyApplication {
             try {
                 switch (choice) {
                     case 1 -> start();
-                    case 2 -> addWorker();
+                    case 2 -> start2();
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println("y/n");
+            input=scanner.next().toLowerCase();
+            quit=input.charAt(0);
+        }
+    }
+    public void start2() {
+        char quit = 'n';
+        String input;
+        int choice;
+        while (quit != 'y') {
+
+            System.out.println("Choose one option:\n 1)Show max salary 2)Show min salary");
+            choice = scanner.nextInt();
+            try {
+                switch (choice) {
+                    case 1 -> smaxsalary();
+                    case 2 -> sminsalary();
 
                 }
             } catch (Exception e) {
@@ -61,17 +87,32 @@ public class MyApplication {
         }
     }
 
-
-
+    private void smaxsalary() {
+        String result = employee_controller.smaxsalary();
+        System.out.println(result);
+    }
+    private void sminsalary() {
+        String result = employee_controller.sminsalary();
+        System.out.println(result);
+    }
 
 
     public void removesoftworker() {
-        System.out.println("Write medicine's id!");
+        System.out.println("Write employee's id!");
         int id = scanner.nextInt();
 
         String result = employee_controller.removesoftworker(id);
 
         System.out.println(result);
+    }
+    private void removewebworker() {
+        System.out.println("Write employee's id!");
+        int id = scanner.nextInt();
+
+        String result = employee_controller.removewebworker(id);
+
+        System.out.println(result);
+
     }
 
 

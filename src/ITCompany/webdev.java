@@ -1,19 +1,25 @@
 package ITCompany;
 
-public class WebDev extends Workers implements ISoftwareEng{
+public class webdev extends Workers implements ISoftwareEng{
     public static int deadline;
     public static int Penalty;
     public static int Bonus;
     private int doTime;
     private int Salary;
-    public WebDev (int id, String Name, String Surname, String Address, String level, String department) {
+    public webdev(int id, String Name, String Surname, String Address, String level, String department) {
         super.setId(id);
         super.setName(Name);
         super.setSurname(Surname);
         super.setAddress(Address);
         super.setLevel(level);
         super.setDepartment(department);
-    } public int getDeadline() {
+    }
+
+    public webdev() {
+
+    }
+
+    public int getDeadline() {
         return deadline;
     }
 

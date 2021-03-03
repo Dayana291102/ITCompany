@@ -3,6 +3,7 @@ package ITCompany.Repository;
 import ITCompany.IConnection;
 import ITCompany.SoftwareEng;
 import ITCompany.Workers;
+import ITCompany.webdev;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -118,6 +119,84 @@ public boolean addsoft( SoftwareEng softwareEng){
 
         return false;
     }
+
+    @Override
+    public boolean removewebworker(int id) {
+        Connection connection = null;
+
+        try {
+            connection = dbManager.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM webdev WHERE id=?");
+
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.execute();
+
+            return true;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public SoftwareEng smaxsalary() {
+
+        Connection connection = null;
+
+        try {
+            connection = dbManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM softengineer WHERE salary=(SELECT MAX(salary) FROM softengineer)");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            SoftwareEng softwareEng = new SoftwareEng();
+            if (resultSet.next()) {
+                System.out.println("This employee has max salary:"+ resultSet.getInt("salary"));
+                System.out.println("ID of employee is="+ " "+ resultSet.getInt("id"));
+                System.out.println("Name of employee is="+" "+resultSet.getString("name"));
+                System.out.println("Surname of employee is="+" "+resultSet.getString("surname"));
+
+            }
+            return softwareEng;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public SoftwareEng sminsalary() {
+
+        Connection connection = null;
+
+        try {
+            connection = dbManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM softengineer WHERE salary=(SELECT MIN(salary) FROM softengineer)");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            SoftwareEng softwareEng = new SoftwareEng();
+            if (resultSet.next()) {
+                System.out.println("This employee has max salary:"+ resultSet.getInt("salary"));
+                System.out.println("ID of employee is="+ " "+ resultSet.getInt("id"));
+                System.out.println("Name of employee is="+" "+resultSet.getString("name"));
+                System.out.println("Surname of employee is="+" "+resultSet.getString("surname"));
+
+            }
+            return softwareEng;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
 
 
 

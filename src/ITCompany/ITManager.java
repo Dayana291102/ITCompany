@@ -38,19 +38,19 @@ public class ITManager extends Workers implements IManager {
     @Override
     public void setDoingDuration(int day) {
         SoftwareEng.deadline=day;
-        WebDev.deadline=day;
+        webdev.deadline=day;
     }
 
 
     @Override
     public void setPenalty(int penalty) {
         SoftwareEng.Penalty=penalty;
-        WebDev.Penalty=penalty;
+        webdev.Penalty=penalty;
     }
 
     @Override
     public void setBonus(int bonus) {
         SoftwareEng.Bonus=bonus;
-        WebDev.Bonus=bonus;
+        webdev.Bonus=bonus;
     }
 }

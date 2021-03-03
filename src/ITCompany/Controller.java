@@ -42,4 +42,22 @@ public class Controller {
         return(removed?"Employee was removed!":"ERROR");
     }
 
+    public String removewebworker(int id) {
+        boolean removed = employee_repository.removewebworker(id);
+
+        return(removed?"Employee was removed!":"ERROR");
+    }
+
+    public String smaxsalary() {
+        String result = employee_repository.smaxsalary().toString();
+
+        return result;
+    }
+    public String sminsalary() {
+        String result = employee_repository.sminsalary().toString();
+
+        return result;
+    }
+
+
 }
