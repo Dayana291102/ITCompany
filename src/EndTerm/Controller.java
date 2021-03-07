@@ -1,6 +1,6 @@
-package ITCompany;
+package EndTerm;
 
-import ITCompany.Repository.IRepository;
+import EndTerm.Repository.IRepository;
 
 public class Controller {
     private final IRepository employee_repository;

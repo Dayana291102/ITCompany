@@ -1,4 +1,4 @@
-package ITCompany;
+package EndTerm;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ITCompany;
+package EndTerm;
 
 public class therapist extends Doctors implements IDentist {
     public static int deadline;

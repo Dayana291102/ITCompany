@@ -1,4 +1,4 @@
-package ITCompany;
+package EndTerm;
 
 public class pediatrican extends Doctors implements IPediatr {
     private int salary;

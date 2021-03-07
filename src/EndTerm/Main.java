@@ -1,7 +1,7 @@
-package ITCompany;
+package EndTerm;
 
-import ITCompany.Repository.IRepository;
-import ITCompany.Repository.Repository;
+import EndTerm.Repository.IRepository;
+import EndTerm.Repository.Repository;
 
 public class Main {
     public static void main(String[] args) {

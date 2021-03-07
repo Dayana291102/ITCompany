@@ -1,4 +1,4 @@
-package ITCompany;
+package EndTerm;
 
 public class dentist extends Doctors implements IDentist {
 

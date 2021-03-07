@@ -1,8 +1,8 @@
-package ITCompany.Repository;
+package EndTerm.Repository;
 
-import ITCompany.Doctors;
-import ITCompany.IConnection;
-import ITCompany.dentist;
+import EndTerm.Doctors;
+import EndTerm.IConnection;
+import EndTerm.dentist;
 
 
 import java.sql.Connection;
@@ -69,7 +69,7 @@ public class Repository implements IRepository {
         return false;
     }
     @Override
-public boolean adddentist( dentist dentist){
+public boolean adddentist(dentist dentist){
     Connection connection = null;
 
     try {
