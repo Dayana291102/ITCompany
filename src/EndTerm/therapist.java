@@ -1,6 +1,6 @@
 package EndTerm;
 
-public class therapist extends Doctors implements IDentist {
+public class therapist extends Doctors implements IDentist {//creating therapist class which extends information from doctors class
     public static int deadline;
     public static int Penalty;
     public static int Bonus;

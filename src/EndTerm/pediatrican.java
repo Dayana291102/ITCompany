@@ -1,6 +1,6 @@
 package EndTerm;
 
-public class pediatrican extends Doctors implements IPediatr {
+public class pediatrican extends Doctors implements IPediatr {//class pediatrican extends variables from doctors class
     private int salary;
 
     public pediatrican(int id, String Name, String Surname, String Address, String level, String department) {
@@ -15,7 +15,7 @@ public class pediatrican extends Doctors implements IPediatr {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
+    }//getters and setters
 
     public int gettingSalary() {
         return salary;
@@ -36,7 +36,7 @@ public class pediatrican extends Doctors implements IPediatr {
 
 
     @Override
-    public void setDoingDuration(int day) {
+    public void setDoingDuration(int day) {//methods
         dentist.deadline=day;
         therapist.deadline=day;
     }

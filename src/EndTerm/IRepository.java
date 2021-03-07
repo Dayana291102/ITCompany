@@ -1,7 +1,4 @@
-package EndTerm.Repository;
-
-import EndTerm.Doctors;
-import EndTerm.dentist;
+package EndTerm;
 
 public interface IRepository {
 

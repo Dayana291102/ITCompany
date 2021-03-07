@@ -1,6 +1,5 @@
 package EndTerm;
 
-import EndTerm.Repository.IRepository;
 import EndTerm.Repository.Repository;
 
 public class Main {

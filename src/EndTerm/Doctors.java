@@ -1,6 +1,6 @@
 package EndTerm;
 
-public class Doctors {
+public class Doctors {// in this class i will create constructor and getters and setters
     private int Id;
     private String Name;
     private String Surname;
@@ -12,7 +12,7 @@ public class Doctors {
 
     }
 
-    public Doctors(int id, String name, String surname, String address, String level, String department) {
+    public Doctors(int id, String name, String surname, String address, String level, String department) {//constructor
         Id = id;
         Name = name;
         Surname = surname;
@@ -31,7 +31,7 @@ public class Doctors {
 
     public void setDepartment(String department) {
         this.department = department;
-    }
+    }//getters and setters
 
     public void setLevel(String level) {
         this.level = level;

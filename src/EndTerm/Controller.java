@@ -1,7 +1,5 @@
 package EndTerm;
 
-import EndTerm.Repository.IRepository;
-
 public class Controller {
     private final IRepository employee_repository;
 

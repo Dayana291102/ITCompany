@@ -2,6 +2,7 @@ package EndTerm.Repository;
 
 import EndTerm.Doctors;
 import EndTerm.IConnection;
+import EndTerm.IRepository;
 import EndTerm.dentist;
 
 
@@ -69,34 +70,34 @@ public class Repository implements IRepository {
         return false;
     }
     @Override
-public boolean adddentist(dentist dentist){
-    Connection connection = null;
+    public boolean adddentist(dentist dentist){
+        Connection connection = null;
 
-    try {
-        connection = dbManager.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO dentist (name, surname, address, level, department,deadline,penalty,bonus,doTime,salary) VALUES(?,?,?,?,?,?,?,?,?,?)");
-        preparedStatement.setString(1, dentist.getName());
-        preparedStatement.setString(2, dentist.getSurname());
-        preparedStatement.setString(3, dentist.getAddress());
-        preparedStatement.setString(4, dentist.getLevel());
-        preparedStatement.setString(5, dentist.getDepartment());
-        preparedStatement.setInt(6, dentist.getDeadline());
-        preparedStatement.setInt(7, dentist.getPenalty());
-        preparedStatement.setInt(8, dentist.getBonus());
-        preparedStatement.setInt(9, dentist.getDoTime());
-        preparedStatement.setInt(10, dentist.gettingSalary());
+        try {
+            connection = dbManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO dentist (name, surname, address, level, department,deadline,penalty,bonus,doTime,salary) VALUES(?,?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setString(1, dentist.getName());
+            preparedStatement.setString(2, dentist.getSurname());
+            preparedStatement.setString(3, dentist.getAddress());
+            preparedStatement.setString(4, dentist.getLevel());
+            preparedStatement.setString(5, dentist.getDepartment());
+            preparedStatement.setInt(6, dentist.getDeadline());
+            preparedStatement.setInt(7, dentist.getPenalty());
+            preparedStatement.setInt(8, dentist.getBonus());
+            preparedStatement.setInt(9, dentist.getDoTime());
+            preparedStatement.setInt(10, dentist.gettingSalary());
 
 
 
-        preparedStatement.execute();
+            preparedStatement.execute();
 
-        return true;
-    } catch (Exception e) {
-        e.printStackTrace();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
-
-    return false;
-}
 
     @Override
     public boolean removedentist(int id) {

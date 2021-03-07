@@ -1,7 +1,6 @@
 package EndTerm;
 
-
-    public interface IDoctor {
+public interface IDoctor {
         String work();
 
     }

@@ -3,7 +3,7 @@ package EndTerm;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Connectionn implements IConnection{
+public class Connectionn implements IConnection{//connecting with my postgreSQL
 
     @Override
     public Connection getConnection() {
