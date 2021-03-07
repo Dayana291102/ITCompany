@@ -1,9 +1,9 @@
 package ITCompany.Repository;
 
+import ITCompany.Doctors;
 import ITCompany.IConnection;
-import ITCompany.SoftwareEng;
-import ITCompany.Workers;
-import ITCompany.webdev;
+import ITCompany.dentist;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,16 +18,16 @@ public class Repository implements IRepository {
 
 
     @Override
-    public Workers getEmployeeById(int id) {
+    public Doctors getDoctorById(int id) {
         Connection connection = null;
 
         try {
             connection = dbManager.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM worker WHERE id=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor WHERE id=?");
 
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            Workers worker = new Workers();
+            Doctors doctors = new Doctors();
             if (resultSet.next()) {
                 System.out.println("ID of employee is="+ " "+ resultSet.getInt("id"));
                 System.out.println("Name of employee is="+" "+resultSet.getString("name"));
@@ -36,7 +36,7 @@ public class Repository implements IRepository {
                 System.out.println("Level of employee is="+" "+resultSet.getString("level"));
                 System.out.println("Department of employee is="+" "+resultSet.getString("department"));
             }
-            return worker;
+            return doctors;
 
 
         } catch (Exception e) {
@@ -47,17 +47,17 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public boolean addWorker(Workers workers) {
+    public boolean addDoctor(Doctors doctors) {
         Connection connection = null;
 
         try {
             connection = dbManager.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO worker (name, surname, address, level, department) VALUES(?,?,?,?,?)");
-            preparedStatement.setString(1, workers.getName());
-            preparedStatement.setString(2, workers.getSurname());
-            preparedStatement.setString(3, workers.getAddress());
-            preparedStatement.setString(4, workers.getLevel());
-            preparedStatement.setString(5, workers.getDepartment());
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO doctor (name, surname, address, level, department) VALUES(?,?,?,?,?)");
+            preparedStatement.setString(1, doctors.getName());
+            preparedStatement.setString(2, doctors.getSurname());
+            preparedStatement.setString(3, doctors.getAddress());
+            preparedStatement.setString(4, doctors.getLevel());
+            preparedStatement.setString(5, doctors.getDepartment());
 
             preparedStatement.execute();
 
@@ -69,22 +69,22 @@ public class Repository implements IRepository {
         return false;
     }
     @Override
-public boolean addsoft( SoftwareEng softwareEng){
+public boolean adddentist( dentist dentist){
     Connection connection = null;
 
     try {
         connection = dbManager.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO softengineer (name, surname, address, level, department,deadline,penalty,bonus,doTime,salary) VALUES(?,?,?,?,?,?,?,?,?,?)");
-        preparedStatement.setString(1, softwareEng.getName());
-        preparedStatement.setString(2, softwareEng.getSurname());
-        preparedStatement.setString(3, softwareEng.getAddress());
-        preparedStatement.setString(4, softwareEng.getLevel());
-        preparedStatement.setString(5, softwareEng.getDepartment());
-        preparedStatement.setInt(6, softwareEng.getDeadline());
-        preparedStatement.setInt(7, softwareEng.getPenalty());
-        preparedStatement.setInt(8, softwareEng.getBonus());
-        preparedStatement.setInt(9, softwareEng.getDoTime());
-        preparedStatement.setInt(10, softwareEng.gettingSalary());
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO dentist (name, surname, address, level, department,deadline,penalty,bonus,doTime,salary) VALUES(?,?,?,?,?,?,?,?,?,?)");
+        preparedStatement.setString(1, dentist.getName());
+        preparedStatement.setString(2, dentist.getSurname());
+        preparedStatement.setString(3, dentist.getAddress());
+        preparedStatement.setString(4, dentist.getLevel());
+        preparedStatement.setString(5, dentist.getDepartment());
+        preparedStatement.setInt(6, dentist.getDeadline());
+        preparedStatement.setInt(7, dentist.getPenalty());
+        preparedStatement.setInt(8, dentist.getBonus());
+        preparedStatement.setInt(9, dentist.getDoTime());
+        preparedStatement.setInt(10, dentist.gettingSalary());
 
 
 
@@ -99,13 +99,13 @@ public boolean addsoft( SoftwareEng softwareEng){
 }
 
     @Override
-    public boolean removesoftworker(int id) {
+    public boolean removedentist(int id) {
         Connection connection = null;
 
         try {
             connection = dbManager.getConnection();
 
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM softengineer WHERE id=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM dentist WHERE id=?");
 
             preparedStatement.setInt(1, id);
 
@@ -121,13 +121,13 @@ public boolean addsoft( SoftwareEng softwareEng){
     }
 
     @Override
-    public boolean removewebworker(int id) {
+    public boolean removetherapist(int id) {
         Connection connection = null;
 
         try {
             connection = dbManager.getConnection();
 
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM webdev WHERE id=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM therapist WHERE id=?");
 
             preparedStatement.setInt(1, id);
 
@@ -143,23 +143,23 @@ public boolean addsoft( SoftwareEng softwareEng){
     }
 
     @Override
-    public SoftwareEng smaxsalary() {
+    public dentist smaxsalary() {
 
         Connection connection = null;
 
         try {
             connection = dbManager.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM softengineer WHERE salary=(SELECT MAX(salary) FROM softengineer)");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM dentist WHERE salary=(SELECT MAX(salary) FROM softengineer)");
             ResultSet resultSet = preparedStatement.executeQuery();
-            SoftwareEng softwareEng = new SoftwareEng();
+            dentist dentist = new dentist();
             if (resultSet.next()) {
-                System.out.println("This employee has max salary:"+ resultSet.getInt("salary"));
-                System.out.println("ID of employee is="+ " "+ resultSet.getInt("id"));
-                System.out.println("Name of employee is="+" "+resultSet.getString("name"));
-                System.out.println("Surname of employee is="+" "+resultSet.getString("surname"));
+                System.out.println("This doctor has max salary:"+ resultSet.getInt("salary"));
+                System.out.println("ID of doctor is="+ " "+ resultSet.getInt("id"));
+                System.out.println("Name of doctor is="+" "+resultSet.getString("name"));
+                System.out.println("Surname of doctor is="+" "+resultSet.getString("surname"));
 
             }
-            return softwareEng;
+            return dentist;
 
 
         } catch (Exception e) {
@@ -170,7 +170,7 @@ public boolean addsoft( SoftwareEng softwareEng){
     }
 
     @Override
-    public SoftwareEng sminsalary() {
+    public dentist sminsalary() {
 
         Connection connection = null;
 
@@ -178,15 +178,15 @@ public boolean addsoft( SoftwareEng softwareEng){
             connection = dbManager.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM softengineer WHERE salary=(SELECT MIN(salary) FROM softengineer)");
             ResultSet resultSet = preparedStatement.executeQuery();
-            SoftwareEng softwareEng = new SoftwareEng();
+            dentist dentist = new dentist();
             if (resultSet.next()) {
-                System.out.println("This employee has max salary:"+ resultSet.getInt("salary"));
-                System.out.println("ID of employee is="+ " "+ resultSet.getInt("id"));
-                System.out.println("Name of employee is="+" "+resultSet.getString("name"));
-                System.out.println("Surname of employee is="+" "+resultSet.getString("surname"));
+                System.out.println("This doctor has max salary:"+ resultSet.getInt("salary"));
+                System.out.println("ID of doctor is="+ " "+ resultSet.getInt("id"));
+                System.out.println("Name of doctor is="+" "+resultSet.getString("name"));
+                System.out.println("Surname of doctor is="+" "+resultSet.getString("surname"));
 
             }
-            return softwareEng;
+            return dentist;
 
 
         } catch (Exception e) {

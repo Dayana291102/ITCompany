@@ -1,16 +1,22 @@
 package ITCompany.Repository;
 
-import ITCompany.SoftwareEng;
-import ITCompany.Workers;
+import ITCompany.Doctors;
+import ITCompany.dentist;
 
 public interface IRepository {
-    public Workers getEmployeeById(int id);
-    public boolean addWorker( Workers workers);
-    public boolean addsoft( SoftwareEng softwareEng);
-    public boolean removesoftworker( int id);
-    public boolean removewebworker( int id);
-    public SoftwareEng smaxsalary();
-    public SoftwareEng sminsalary();
 
 
+    public Doctors getDoctorById(int id);
+
+    boolean addDoctor(Doctors doctors);
+
+    boolean adddentist(dentist dentist);
+
+    boolean removedentist(int id);
+
+    boolean removetherapist(int id);
+
+    public dentist  smaxsalary();
+
+    public dentist sminsalary();
 }

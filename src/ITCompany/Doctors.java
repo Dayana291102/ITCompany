@@ -1,6 +1,6 @@
 package ITCompany;
 
-public class Workers {
+public class Doctors {
     private int Id;
     private String Name;
     private String Surname;
@@ -8,11 +8,11 @@ public class Workers {
     private String level;
     private String department;
 
-    public Workers(){
+    public Doctors(){
 
     }
 
-    public Workers(int id, String name, String surname, String address, String level, String department) {
+    public Doctors(int id, String name, String surname, String address, String level, String department) {
         Id = id;
         Name = name;
         Surname = surname;
@@ -21,7 +21,7 @@ public class Workers {
         this.department = department;
     }
 
-    public Workers(String name, String surname, String address, String level, String department) {
+    public Doctors(String name, String surname, String address, String level, String department) {
         Name = name;
         Surname = surname;
         Address = address;
@@ -76,8 +76,8 @@ public class Workers {
     public int getId() {
         return Id;
     }
-    public void WorkerInf(){
-        System.out.println("Worker"+ getName()+" "+getSurname() +"with Id"+getId());
+    public void Doctorinf(){
+        System.out.println("Doctor"+ getName()+" "+getSurname() +"with Id"+getId());
         System.out.println("Address"+getAddress());
         System.out.println("Level"+getLevel());
         System.out.println("Department"+getDepartment());

@@ -1,9 +1,9 @@
 package ITCompany;
 
-public class ITManager extends Workers implements IManager {
+public class pediatrican extends Doctors implements IPediatr {
     private int salary;
 
-    public ITManager(int id, String Name, String Surname, String Address, String level, String department) {
+    public pediatrican(int id, String Name, String Surname, String Address, String level, String department) {
 
         super.setId(id);
         super.setName(Name);
@@ -27,7 +27,7 @@ public class ITManager extends Workers implements IManager {
 
 
     public String work() {
-        return super.getName() + "works in IT company as manager";
+        return super.getName() + "works in hospital as pediatr";
     }
 
     public String getSalary() {
@@ -37,20 +37,20 @@ public class ITManager extends Workers implements IManager {
 
     @Override
     public void setDoingDuration(int day) {
-        SoftwareEng.deadline=day;
-        webdev.deadline=day;
+        dentist.deadline=day;
+        therapist.deadline=day;
     }
 
 
     @Override
     public void setPenalty(int penalty) {
-        SoftwareEng.Penalty=penalty;
-        webdev.Penalty=penalty;
+        dentist.Penalty=penalty;
+        therapist.Penalty=penalty;
     }
 
     @Override
     public void setBonus(int bonus) {
-        SoftwareEng.Bonus=bonus;
-        webdev.Bonus=bonus;
+        dentist.Bonus=bonus;
+        therapist.Bonus=bonus;
     }
 }

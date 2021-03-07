@@ -1,7 +1,7 @@
 package ITCompany;
 
 
-    public interface IWorker {
+    public interface IDoctor {
         String work();
 
     }

@@ -1,6 +1,6 @@
 package ITCompany;
 
-public interface IManager extends IWorker {
+public interface IPediatr extends IDoctor {
     String manage();
     void setDoingDuration(int day);
     void setPenalty(int penalty);

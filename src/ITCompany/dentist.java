@@ -1,12 +1,14 @@
 package ITCompany;
 
-public class webdev extends Workers implements ISoftwareEng{
+public class dentist extends Doctors implements IDentist {
+
     public static int deadline;
     public static int Penalty;
     public static int Bonus;
     private int doTime;
     private int Salary;
-    public webdev(int id, String Name, String Surname, String Address, String level, String department) {
+    public dentist(int id, String Name, String Surname, String Address, String level, String department) {
+
         super.setId(id);
         super.setName(Name);
         super.setSurname(Surname);
@@ -15,7 +17,15 @@ public class webdev extends Workers implements ISoftwareEng{
         super.setDepartment(department);
     }
 
-    public webdev() {
+    public dentist(String name, String surname, String address, String level, String department) {
+        
+    }
+
+
+    public dentist(String name, String surname, String address, String level, String department, int deadline, int penalty, int bonus, int doTime, int salary) {
+    }
+
+    public dentist() {
 
     }
 
@@ -57,23 +67,21 @@ public class webdev extends Workers implements ISoftwareEng{
 
     }
     public String work() {
-        return super.getName() + " works in IT company as Web Developer.";
+        return super.getName() + " works in hospital as dentist.";
     }
 
-    public String getSalary() {
-        return "He get salary "+gettingSalary()+"$ per month.";
-    }
-    public String write(){return "he doing Assignment 5";}
+
+    public String write(){return "he work";}
     @Override
     public int get_doing_duration() {
         return deadline;
     }
     public String checking() {
         if (deadline < doTime)
-            return "He got bonus in "+getBonus()+"$ for early done.";
+            return "He got bonus in "+getBonus()+"$ .";
 
         else
-            return "He got penalty in "+getPenalty()+"$ tg for late";
+            return "He got penalty in "+getPenalty()+"$ ";
 
     }
     @Override
@@ -85,16 +93,17 @@ public class webdev extends Workers implements ISoftwareEng{
     public int getPenalty() {
         return Penalty;
     }
-    public void WebInf(){
+    public void SoftInf(){
         System.out.println(work());
         System.out.println(programs());
 
         System.out.println(write());
 
-        System.out.println(getSalary());
+        System.out.println(gettingSalary());
 
         System.out.println(checking());
 
     }
 
+   
 }

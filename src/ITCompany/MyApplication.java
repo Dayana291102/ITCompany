@@ -3,13 +3,13 @@ package ITCompany;
 import java.util.Scanner;
 
 public class MyApplication {
-    private final Controller employee_controller;
+    private final Controller doctor_controller;
     private final Scanner scanner;
 
 
 
-    public MyApplication(Controller employee_controller) {
-        this.employee_controller=employee_controller;
+    public MyApplication(Controller doctor_controller) {
+        this.doctor_controller=doctor_controller;
         scanner=new Scanner((System.in));
     }
 
@@ -19,15 +19,15 @@ public class MyApplication {
         int choice;
         while (quit != 'y') {
 
-            System.out.println("Choose one option:\n 1) Find employee by id \n 2) Add employee \n3)Add software engineer \n4)Remove software engineer \n 5)Remove web developer ");
+            System.out.println("Choose one option:\n 1) Find doctor  by id \n 2) Add doctor \n3)Add software engineer \n4)Remove software engineer \n 5)Remove web developer ");
             choice = scanner.nextInt();
             try {
                 switch (choice) {
-                    case 1 -> getEmployeeByIdMenu();
-                    case 2 -> addWorker();
-                    case 3 -> addsoft();
-                    case 4 -> removesoftworker();
-                    case 5 -> removewebworker();
+                    case 1 -> getDoctorById();
+                    case 2 -> addDoctor();
+                    case 3 -> adddentist();
+                    case 4 -> removedentist();
+                    case 5 -> removetherapist();
 
 
                 }
@@ -48,12 +48,15 @@ public class MyApplication {
         int choice;
         while (quit != 'y') {
 
-            System.out.println("Who are you?:\n 1)ITManager 2)SoftEng 2)WebDeveloper");
+            System.out.println("Who are you?:\n 1)IPediatr 2)Dentist 2)therapist");
             choice = scanner.nextInt();
             try {
                 switch (choice) {
                     case 1 -> start();
                     case 2 -> start2();
+                    case 3 -> start2();
+
+
 
                 }
             } catch (Exception e) {
@@ -88,45 +91,45 @@ public class MyApplication {
     }
 
     private void smaxsalary() {
-        String result = employee_controller.smaxsalary();
+        String result = doctor_controller.smaxsalary();
         System.out.println(result);
     }
     private void sminsalary() {
-        String result = employee_controller.sminsalary();
+        String result = doctor_controller.sminsalary();
         System.out.println(result);
     }
 
 
-    public void removesoftworker() {
-        System.out.println("Write employee's id!");
+    public void removedentist() {
+        System.out.println("Write doctor's id!");
         int id = scanner.nextInt();
 
-        String result = employee_controller.removesoftworker(id);
+        String result = doctor_controller.removedentist(id);
 
         System.out.println(result);
     }
-    private void removewebworker() {
-        System.out.println("Write employee's id!");
+    private void removetherapist() {
+        System.out.println("Write doctor's id!");
         int id = scanner.nextInt();
 
-        String result = employee_controller.removewebworker(id);
+        String result = doctor_controller.removetherapist(id);
 
         System.out.println(result);
 
     }
 
 
-    public void getEmployeeByIdMenu() {
+    public void getDoctorById() {
         System.out.println("Write the id of medicine!");
         int id = scanner.nextInt();
-        String result = employee_controller.getEmployeeById(id);
+        String result = doctor_controller.getDoctorById(id);
         System.out.println(result);
     }
 
-    public void addWorker() {
-        System.out.println("Write the name of employee!");
+    public void addDoctor() {
+        System.out.println("Write the name of doctor!");
         String name = scanner.next();
-        System.out.println("Write the surname of employee!");
+        System.out.println("Write the surname of doctor!");
         String surname  = scanner.next();
         System.out.println("Write the address!");
         String address = scanner.next();
@@ -135,14 +138,14 @@ public class MyApplication {
         System.out.println("Write the department");
         String department = scanner.next();
 
-        String result = employee_controller.addWorker(name, surname, address, level, department);
+        String result = doctor_controller.addDoctor(name, surname, address, level, department);
 
         System.out.println(result);
     }
-    public void addsoft() {
-        System.out.println("Write the name of employee!");
+    public void adddentist() {
+        System.out.println("Write the name of doctor!");
         String name = scanner.next();
-        System.out.println("Write the surname of employee!");
+        System.out.println("Write the surname of doctor!");
         String surname  = scanner.next();
         System.out.println("Write the address!");
         String address = scanner.next();
@@ -161,8 +164,12 @@ public class MyApplication {
         System.out.println("Write the salary");
         int salary = scanner.nextInt();
 
-        String result = employee_controller.addsoft(name, surname, address, level, department,deadline,penalty, bonus,doTime,salary);
+        String result = doctor_controller.adddentist(name, surname, address, level, department,deadline,penalty, bonus,doTime,salary);
 
         System.out.println(result);
     }
 }
+/*
+* String Dayana=scanner.nextLine()
+* scanner.nextLine();
+* int a=scanner.nextInt()*/
